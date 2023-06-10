@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style>
+   .column{
+    float:left;
+    width:25%;
+   } 
+   .row:after{
+    content:"";
+    display:table;
+    clear:both;
+   }
+   .bg-container{
+    background-image:url("https://img.freepik.com/free-photo/uranus-sky-night-background-asset-game-2d-futuristic-generative-ai_191095-2033.jpg?w=1060&t=st=1686388390~exp=1686388990~hmac=44a5e8641dde37d1da197379884b8b36c4668bd41348c184e4ecb749623d4e04");
+   background-size:cover;
+   height:100vh;
+   }
+   .heading{
+    color:yellow;
+   }
+   .labels{
+    color:blue;
+   }
+   
+    .button {
+    background-color: blue;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    font-family: "Roboto";
+    font-size: 25px;
+    
+}
+.button-container{
+    margin-left:25px;
+}
+.column-name{
+    size:25px;
+    font-size:25px;
+    color:hotpink;
+    margin-left:12px;
+
+}
+   
+</style>
+</head>
+<body >
+    <div class="bg-container " style="text-align:center">
+    <div class="d-flex flex-column justify-content-center">
+        <h1 class="heading "> Submission Form </h1>
+        
+    <div class="shadow mb-5">
+        <label for="name1" class="labels">first Name:</label>
+        <input type="text" placeholder="First Name" id="name1"/>
+    </div>
+    
+    <div class="shadow mb-5">
+        <label for="name2" class="labels"> last name:</label>
+        <input type="text" placeholder ="Last Name" id="name2" />
+    </div>
+    <div class="shadow mb-5">
+        <label for="number " class="labels">phone number:</label>
+
+        <input type="number" placeholder="Enter your number here" id="number"/>
+    </div>
+    <div class="button-container">
+        <button class="button" id="button"> Submit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column" id="nameContainer">
+        <p class="column-name">First name </p>
+        <p class="column-name" id="names"></p>
+        </div>
+        <div class="column">
+            <p class="column-name" >Last name </p>
+            <p id="names2" class="column-name" ></p>
+        </div>
+        <div class="column">
+            <p class="column-name" >Initials</p>
+            <p id="initials" class="column-name" ></p>
+        </div>
+        <div class="column">
+            <p class="column-name" >Time</p>
+            <p id="time" class="column-name" ></p>
+        </div>
+        
+    </div>
+    </div>
+    <script>
+        let buttonEl=document.getElementById("button");
+        let nameContainerEl=document.getElementById("nameContainer");
+        let namesEl=document.getElementById("names");
+        let names2El=document.getElementById("names2");
+        let number=document.getElementById("number");
+        let lastName=document.getElementById("name2");
+        let initialsEl=document.getElementById("initials");
+        let firstname=document.getElementById("name1");
+        let timeEl=document.getElementById("time");
+        let currentDate=new Date();
+        let dateAndTime=currentDate.toLocaleString();
+      
+    
+        
+        buttonEl.addEventListener("click",function(){
+            let value1=firstname.value;
+            let value2=lastName.value;
+        
+            let split=value2.split('');
+            let reversear=split.reverse();
+            let value5=reversear.join('');
+            let value4=value5;
+            let value3=number.value;
+           namesEl.textContent=value1;
+           names2El.textContent=value2;
+           initialsEl.textContent=value1.slice(0,4)+ value3.slice(3,7)+value4.slice(0,4);
+           timeEl.textContent=dateAndTime;
+        })
+    </script>
+</body>
+</html>
